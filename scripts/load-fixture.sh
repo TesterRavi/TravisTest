@@ -7,5 +7,5 @@ mysql -e "create user 'hautelook'@'%';" --user=root
 mysql -e "GRANT ALL PRIVILEGES ON * . * TO 'hautelook'@'%';" --user=root
 mysql -e "FLUSH PRIVILEGES;" --user=root
 mysql -uroot hautelook < hautelook_dev.sql
-mysql_upgrade
+sudo mysql_upgrade
 mysql -uroot hautelook < postd
