@@ -1,1 +1,2 @@
+sudo: false
 script: ./scripts/load-fixture.sh
