@@ -1,5 +1,0 @@
-test:
-  database: hautelook
-  username: root
-  password:
-  encoding: utf8
