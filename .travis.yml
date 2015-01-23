@@ -1,7 +1,8 @@
 sudo: false
 script:
   - mysql -e 'create database hautelook;'
-  - mysql -e 'CREATE USER 'hautelook'@'localhost' IDENTIFIED BY;'
+  - mysql -e "create user 'hautelook'@'localhost';" --user=root
   - mysql -uroot hautelook < hautelook_dev.sql
   - mysql -uroot hautelook < postd
+  - mysql -e 'use hautelook;'
   - mysql -e 'select * from events WHERE event_id = 38568;'
