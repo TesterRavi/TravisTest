@@ -1,5 +1,4 @@
 test:
-  adapter: mysql2
   database: hautelook
   username: root
   password:

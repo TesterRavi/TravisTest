@@ -1,5 +1,5 @@
 before_script:
   - mysql -e 'create database hautelook;'
-  - mysql -uroot  hautelook < hautelook_dev.sql
-  - mysql -uroot  hautelook < postd
+  - mysql -uroot hautelook < hautelook_dev.sql
+  - mysql -uroot hautelook < postd
   - mysql -e 'select * from events WHERE event_id = 38568;'
