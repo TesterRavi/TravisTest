@@ -2,6 +2,10 @@
 # load-fixture
 # update permission before checking it in-- chmod ugo+x scripts/load-fixture.sh
 
+# fail on error:
+
+set -e 
+
 mysql -e 'create database hautelook;'
 mysql -e "create user 'hautelook'@'%';" --user=root
 mysql -e "GRANT ALL PRIVILEGES ON * . * TO 'hautelook'@'%';" --user=root
