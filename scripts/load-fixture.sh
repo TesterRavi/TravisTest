@@ -4,7 +4,7 @@
 
 # fail on error:
 
-set -e
+#set -e
 
 mysql -e 'create database hautelook;'
 mysql -e "create user 'hautelook'@'%';" --user=root
