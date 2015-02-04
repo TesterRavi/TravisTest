@@ -2,7 +2,7 @@
 
 use hautelook;
 
- /* select * from events WHERE event_id = 38568; */
+select * from events WHERE event_id = 38568;
 
 UPDATE events
 SET start_date = CURRENT_TIMESTAMP
