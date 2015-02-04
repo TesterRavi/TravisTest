@@ -6,3 +6,4 @@
 
 
 mysqldump -uroot -p hautelook --routines  > /vagrant/sql_export/hautelook_dev.sql
+split --bytes=10M  hautelook_dev.sql hautelook.sql
