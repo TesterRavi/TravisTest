@@ -1,2 +1,2 @@
 sudo: false
-script: ./scripts/load-fixture.sh
+script: ./scripts/install-fixture.sh
