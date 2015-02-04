@@ -1,0 +1,49 @@
+USE ``;
+
+-- Table structure for table `order_items`
+--
+
+DROP TABLE IF EXISTS `order_items`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `order_items` (
+  `item_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `order_id` int(10) unsigned NOT NULL,
+  `event_id` int(10) unsigned NOT NULL,
+  `sku` int(10) unsigned NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `ordered` int(11) unsigned NOT NULL,
+  `taxes` decimal(10,2) DEFAULT '0.00',
+  `freight` decimal(10,2) NOT NULL,
+  `tax_rate` decimal(10,4) NOT NULL DEFAULT '0.0000',
+  `freight_taxes` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `surcharge` decimal(10,2) unsigned DEFAULT '0.00',
+  `surcharge_rate` decimal(10,4) unsigned DEFAULT '0.0000',
+  `ship_method_id` int(10) unsigned NOT NULL,
+  `max_short` int(10) unsigned NOT NULL DEFAULT '0',
+  `current_short` int(10) unsigned NOT NULL DEFAULT '0',
+  `short_email_sent` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `returnable` tinyint(3) unsigned NOT NULL DEFAULT '1',
+  `modify_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`item_id`),
+  KEY `FK_order_items::orders` (`order_id`),
+  KEY `FK_order_items::events` (`event_id`),
+  KEY `FK_order_items::skus` (`sku`),
+  KEY `modify_date` (`modify_date`),
+  CONSTRAINT `FK_order_items::events` FOREIGN KEY (`event_id`) REFERENCES `events` (`event_id`) ON UPDATE CASCADE,
+  CONSTRAINT `FK_order_items::orders` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`) ON UPDATE CASCADE,
+  CONSTRAINT `FK_order_items::skus` FOREIGN KEY (`sku`) REFERENCES `skus` (`sku`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=14947203 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `order_items`
+--
+
+LOCK TABLES `order_items` WRITE;
+/*!40000 ALTER TABLE `order_items` DISABLE KEYS */;
+INSERT INTO `order_items` VALUES (2005214,1002411,2435,391870,60.00,1,5.85,7.95,9.7500,0.00,0.00,0.0000,9,0,0,'0000-00-00 00:00:00',0,'2012-09-27 14:19:50'),(2305534,1158482,2663,531802,19.50,1,1.90,5.95,9.7500,0.00,0.00,0.0000,3,0,0,'0000-00-00 00:00:00',0,'2012-09-27 14:10:23'),(2474109,1248156,2813,562751,69.00,1,6.73,7.95,9.7500,0.00,0.00,0.0000,9,0,0,'0000-00-00 00:00:00',0,'2012-09-27 14:10:23'),(5312993,2670045,6257,915765,12.99,1,1.27,0.00,9.7500,0.00,0.00,0.0000,3,0,0,'0000-00-00 00:00:00',0,'2012-09-27 14:02:55'),(5312994,2670045,6156,346386,8.99,1,0.88,5.95,9.7500,0.00,0.00,0.0000,3,0,0,'0000-00-00 00:00:00',0,'2012-09-27 14:02:55'),(5312995,2670045,6156,1005798,10.99,1,1.07,0.00,9.7500,0.00,0.00,0.0000,3,0,0,'0000-00-00 00:00:00',0,'2012-09-27 14:02:55'),(9596926,4834440,12798,1557510,35.00,1,2.54,7.95,7.2500,0.00,0.00,0.0000,3,0,0,'0000-00-00 00:00:00',0,'2012-09-20 13:50:11'),(10763015,5415631,13470,1967802,89.00,1,6.45,7.95,7.2500,0.00,0.00,0.0000,3,0,0,'0000-00-00 00:00:00',0,'2012-09-20 13:47:21'),(12289588,6178799,16972,2249798,39.00,1,2.83,7.95,7.2500,0.00,0.00,0.0000,3,0,0,'0000-00-00 00:00:00',1,'2012-05-26 10:49:30'),(14947201,7539552,21712,1062607,25.00,1,1.81,5.95,7.2500,0.00,0.00,0.0000,3,0,0,'0000-00-00 00:00:00',0,'2012-10-14 20:47:14'),(14947202,7539553,21712,1062607,25.00,1,1.81,5.95,7.2500,0.00,0.00,0.0000,3,0,0,'0000-00-00 00:00:00',0,'2012-10-14 20:47:14');
+/*!40000 ALTER TABLE `order_items` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
