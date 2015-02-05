@@ -13,7 +13,7 @@ if ! mysql -u root -e 'use hautelook'; then
   mysql -e "FLUSH PRIVILEGES;" --user=root
   cat dump-files/hautelook* > dump-files/hautelook_dev.sql
   mysql -uroot hautelook < dump-files/hautelook_dev.sql
-  mysql -uroot hautelook < /scripts/post-deployment
+  mysql -uroot hautelook < scripts/post-deployment
 
 else
 
