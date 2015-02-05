@@ -6,11 +6,27 @@
 
 set -e
 
-  mysql -e "DROP DATABASE IF EXISTS hautelook;"
-  mysql -e 'CREATE DATABASE hautelook;'
-  mysql -e "CREATE USER 'hautelook'@'%';" --user=root
+  DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+  DIR=$(cd "$DIR/../dump-files/" && pwd)
+  echo $DIR
+  VARG="/vagrant//([^/]+)/"
+
+  mysql -e "DROP DATABASE IF EXISTS hautelook;" --user=root
+  mysql -e 'CREATE DATABASE hautelook;' --user=root
+
+  # if [ [$DIR =~ $VARG ] ]; then
+
+  # 	echo "in vagrant"
+
+  #  else
+
+   	mysql -e "CREATE USER 'hautelook'@'%';" --user=root
+
+  # fi
+
   mysql -e "GRANT ALL PRIVILEGES ON * . * TO 'hautelook'@'%';" --user=root
   mysql -e "FLUSH PRIVILEGES;" --user=root
-  cat dump-files/hautelook* > dump-files/hautelook_dev.sql
-  mysql -uroot hautelook < dump-files/hautelook_dev.sql
-  mysql -uroot hautelook < scripts/post-deployment
+  cat $DIR/hautelook* > $DIR/hautelook_dev.sql
+  mysql -uroot hautelook < $DIR/hautelook_dev.sql
+  mysql -uroot hautelook < $DIR/post-deployment
+  rm $DIR/hautelook_dev.sql

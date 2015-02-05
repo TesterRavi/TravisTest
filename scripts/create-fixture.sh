@@ -6,6 +6,10 @@
 
 set -e
 
-mysqldump -uroot -p hautelook --routines  > /vagrant/sql_export/hautelook_dev.sql
-split --bytes=10M  /vagrant/sql_export/hautelook_dev.sql /vagrant/sql_export/hautelook.sql
-rm /vagrant/sql_export/hautelook_dev.sql
+  DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+  DIR=$(cd "$DIR/../dump-files/" && pwd)
+  echo $DIR
+
+  mysqldump -uroot hautelook --routines  > $DIR/hautelook_dev.sql
+  split --bytes=10M  $DIR/hautelook_dev.sql $DIR/hautelook.sql
+  rm $DIR/hautelook_dev.sql
