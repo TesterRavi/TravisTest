@@ -4,27 +4,13 @@
 
 # fail on error:
 
-
-
-dbname =`mysqlshow -uroot hautelook| grep -v Wildcard | grep -o hautelook`
-
 set -e
 
-if [ "$dbname" == "hautelook" ]; then
-
-  cat /vagrant/sql_export/hautelook* > /vagrant/sql_export/hautelook_dev.sql
-  mysql -uroot hautelook < /vagrant/sql_export/hautelook_dev.sql
-  mysql -uroot hautelook < /vagrant/sql_export/scripts/post-deployment
-  rm /vagrant/sql_export/hautelook_dev.sql
-
-else
-
-  mysql -e 'create database hautelook;'
-  mysql -e "create user 'hautelook'@'%';" --user=root
+  mysql -e "DROP DATABASE IF EXISTS hautelook;"
+  mysql -e 'CREATE DATABASE hautelook;'
+  mysql -e "CREATE USER 'hautelook'@'%';" --user=root
   mysql -e "GRANT ALL PRIVILEGES ON * . * TO 'hautelook'@'%';" --user=root
   mysql -e "FLUSH PRIVILEGES;" --user=root
   cat dump-files/hautelook* > dump-files/hautelook_dev.sql
   mysql -uroot hautelook < dump-files/hautelook_dev.sql
   mysql -uroot hautelook < scripts/post-deployment
-
-fi
