@@ -20,7 +20,7 @@ set -e
 
   #  else
 
-   	mysql -e "CREATE USER 'hautelook'@'%';" --user=root
+   #	mysql -e "CREATE USER 'hautelook'@'%';" --user=root
 
   # fi
 
