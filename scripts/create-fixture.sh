@@ -8,7 +8,7 @@ set -e
 
   DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
   DIR=$(cd "$DIR/../dump-files/" && pwd)
-  echo $DIR
+  # echo $DIR
 
   mysqldump -uroot hautelook --routines  > $DIR/hautelook_dev.sql
   split --bytes=10M  $DIR/hautelook_dev.sql $DIR/hautelook.sql
