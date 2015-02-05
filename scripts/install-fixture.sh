@@ -4,9 +4,13 @@
 
 # fail on error:
 
+
+
+dbname =`mysqlshow -uroot -p hautelooks| grep -v Wildcard | grep -o hautelooks`
+
 set -e
 
-if ! mysql -u root -e 'use hautelook'; then
+if [ "$dbname" == "hautelook" ]; then
   mysql -e 'create database hautelook;'
   mysql -e "create user 'hautelook'@'%';" --user=root
   mysql -e "GRANT ALL PRIVILEGES ON * . * TO 'hautelook'@'%';" --user=root
