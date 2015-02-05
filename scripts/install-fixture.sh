@@ -6,7 +6,7 @@
 
 
 
-dbname =`mysqlshow -uroot -p hautelooks| grep -v Wildcard | grep -o hautelooks`
+dbname =`mysqlshow -uroot hautelook| grep -v Wildcard | grep -o hautelook`
 
 set -e
 
