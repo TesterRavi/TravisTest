@@ -10,14 +10,14 @@ arg_variable = ARGV[0]
 ## variables:
 
 current_dir = File.expand_path(Dir.pwd)
-current_dir = "#{current_dir}/halo-sql"
+# current_dir = "#{current_dir}/halo-sql"
 
 
 $yaml_file_name = "table_dependencies.yaml"
 $script_file_location = "#{current_dir}/script/"
 $yaml_file_location = "#{current_dir}/post_deployment_script/"
 $table_dump_location = "#{current_dir}/table_dumps/"
-$yaml_Object = Hash.new 
+$yaml_Object = Hash.new
 $tables_queue  = Array.new
 
 
@@ -58,7 +58,7 @@ puts "Done.."
 rescue Exception => e
 
 	puts e
-	
+
 end
 end
 
@@ -72,45 +72,45 @@ def self.load_yaml()
 	begin
 
 		puts "loc ::::::::::::::::::::::  #{$yaml_file_location}#{$yaml_file_name}"
-		
+
 		$yaml_Object = YAML::load_file("#{$yaml_file_location}#{$yaml_file_name}")
 
 	rescue Exception => e
 
 		puts e
 
-		
+
 	end
 
 	puts "Done.."
-	
+
 end
 
 def self.install_table_to_mysql(tables_queue)
 
 	puts "installing mysql tables."
-	
+
 	begin
 
-			
+
 
 			tables_queue.each do |install_table|
 
-				next if install_table == "view_gp_po_header" 
+				next if install_table == "view_gp_po_header"
 				puts "installing: #{install_table}"
 				installtables = Thread.new do
-  					system("mysql -uroot hautelook < #{$table_dump_location}#{install_table}.sql") 
+  					system("mysql -uroot hautelook < #{$table_dump_location}#{install_table}.sql")
 				end
-				installtables.join 
+				installtables.join
 	  		end
 
-	  		system("mysql -uroot hautelook < #{$table_dump_location}view_gp_po_header.sql") 
+	  		system("mysql -uroot hautelook < #{$table_dump_location}view_gp_po_header.sql")
 	  		puts "installing: view_gp_po_header"
-		
+
 	rescue Exception => e
 
 		puts e
-		
+
 	end
 		puts "Done.."
 end
@@ -120,21 +120,21 @@ def self.dump_table_from_mysql(tables_queue)
 	puts "dumping mysql tables."
 
 	begin
-			
+
 		tables_queue.each do |dump_table|
 
 				puts "Dumping: #{dump_table}"
 				dumptables = Thread.new do
-  					system("mysqldump -uroot hautelook #{dump_table} > #{$table_dump_location}#{dump_table}.sql") 
+  					system("mysqldump -uroot hautelook #{dump_table} > #{$table_dump_location}#{dump_table}.sql")
 				end
-				dumptables.join 
+				dumptables.join
 		end
 
-		
+
 	rescue Exception => e
 
 		puts e
-		
+
 	end
 		puts "Done.."
 end
@@ -145,16 +145,16 @@ def self.mysql_preinstall()
 	puts "checking pre-req. for mysql"
 
 	begin
-		
+
 		system("mysql -e 'DROP DATABASE IF EXISTS hautelook;' --user=root")
 		system("mysql -e 'CREATE DATABASE hautelook;' --user=root")
 		system("mysql -e 'GRANT ALL PRIVILEGES ON * . * TO \"hautelook\"@\"%\";' --user=root")
 		system("mysql -e 'FLUSH PRIVILEGES;' --user=root")
-		
+
 	rescue Exception => e
 
 		puts e
-		
+
 	end
 	puts "Done.."
 end
@@ -165,16 +165,16 @@ def self.mysql_dump_sproc()
 	puts "Dumping sprocs."
 
 	begin
-				
-				dumpsproc = Thread.new do 
+
+				dumpsproc = Thread.new do
   					system("mysqldump -uroot --routines --skip-triggers --no-create-info --no-data --no-create-db --skip-opt hautelook > #{$table_dump_location}sproc.sql")
 				end
-				dumpsproc.join 
-		
+				dumpsproc.join
+
 
 
 	rescue Exception => e
-		
+
 	end
 		puts "Done.."
 end
@@ -184,16 +184,16 @@ def self.mysql_install_sproc()
 	puts "installing sprocs."
 
 	begin
-				
-				dumpsproc = Thread.new do 
+
+				dumpsproc = Thread.new do
   					system("mysql -uroot hautelook < #{$table_dump_location}sproc.sql")
 				end
-				dumpsproc.join 
-		
+				dumpsproc.join
+
 
 
 	rescue Exception => e
-		
+
 	end
 	puts "Done.."
 end
@@ -204,26 +204,26 @@ end
 def self.dfs_tables(yaml_Object,current_table)
 
 	begin
-			
-		  yaml_Object.each {|key, value| 
+
+		  yaml_Object.each {|key, value|
 
 		    next if $tables_queue.include?(key)
 
-      	 	 if key == current_table then 
+      	 	 if key == current_table then
 
         		 	if value.empty? then
 
         				$tables_queue.push(key) unless $tables_queue.include?(key)
-        		
-      				else 
+
+      				else
 
                 		value.each do |itr_tables|
 
                 		next if $tables_queue.include?(itr_tables)
 
-           					yaml_Object.key? (itr_tables) ? dfs_tables(yaml_Object,itr_tables) : puts() 
+           					yaml_Object.key? (itr_tables) ? dfs_tables(yaml_Object,itr_tables) : puts()
 
-            			end 
+            			end
 
           			end
       	  		end
@@ -233,14 +233,14 @@ def self.dfs_tables(yaml_Object,current_table)
   				$tables_queue.push(current_table) unless $tables_queue.include?(current_table)
 
   				# dump_table_from_mysql(current_table)
-		
+
 	rescue Exception  =>  e
 
 				# puts e
-		
+
 		end
 
-		
+
 end
 
 
@@ -248,16 +248,16 @@ def self.postDeploymentScript()
 	puts "running postDeploymentScript"
 
 	begin
-				
-				dumpsproc = Thread.new do 
+
+				dumpsproc = Thread.new do
   					system("mysql -uroot hautelook < #{$table_dump_location}postDeploymentScript")
 				end
-				dumpsproc.join 
+				dumpsproc.join
 	rescue Exception => e
-		
+
 	end
 puts "Done"
-	
+
 end
 
 
@@ -292,7 +292,7 @@ mysql_dump_sproc()
 
 
 elsif arg_variable == "install"
-	
+
 
 load_yaml
 
@@ -358,12 +358,3 @@ else
 	puts " 'dump-install' if you are trying to dump data and then install them. \n"
 
 end
-
-
-
-
-
-
-
-
-
