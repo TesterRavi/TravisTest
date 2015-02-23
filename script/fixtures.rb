@@ -250,7 +250,7 @@ def self.postDeploymentScript()
 	begin
 
 				dumpsproc = Thread.new do
-  					system("mysql -uroot hautelook < #{$table_dump_location}postDeploymentScript")
+  					system("mysql -uroot hautelook < #{$yaml_file_location}postDeploymentScript")
 				end
 				dumpsproc.join
 	rescue Exception => e
