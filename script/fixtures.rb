@@ -71,8 +71,6 @@ def self.load_yaml()
 
 	begin
 
-		puts "loc ::::::::::::::::::::::  #{$yaml_file_location}#{$yaml_file_name}"
-
 		$yaml_Object = YAML::load_file("#{$yaml_file_location}#{$yaml_file_name}")
 
 	rescue Exception => e
@@ -297,8 +295,6 @@ elsif arg_variable == "install"
 load_yaml
 
 yObject = $yaml_Object
-
-puts yObject
 
 puts "loading DFS into memory:"
 
