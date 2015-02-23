@@ -1,2 +1,2 @@
 sudo: false
-script: ./scripts/install.sh
+script: ./script/fixtures.rb "install"
