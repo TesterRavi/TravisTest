@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require 'fixtures'
+require './script/fixtures'
 
 
 $arg_variable = ARGV[0]
@@ -111,3 +111,5 @@ def self.main()
   end
 
 end
+
+main
