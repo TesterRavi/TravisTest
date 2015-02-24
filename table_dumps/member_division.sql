@@ -38,7 +38,7 @@ CREATE TABLE `member_division` (
 
 LOCK TABLES `member_division` WRITE;
 /*!40000 ALTER TABLE `member_division` DISABLE KEYS */;
-INSERT INTO `member_division` VALUES ('Beauty','','Y',0,'2013-10-21 23:13:16'),('Home','','Y',0,'2013-10-21 23:13:16'),('Kids','','Y',0,'2015-02-23 12:11:31'),('Men','','Y',0,'2013-10-21 23:13:16'),('Women','','Y',0,'2015-02-23 12:11:31');
+INSERT INTO `member_division` VALUES ('Beauty','','Y',0,'2013-10-21 23:13:16'),('Home','','Y',0,'2013-10-21 23:13:16'),('Kids','','Y',0,'2015-02-23 15:59:20'),('Men','','Y',0,'2013-10-21 23:13:16'),('Women','','Y',0,'2015-02-23 15:59:20');
 /*!40000 ALTER TABLE `member_division` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-02-23 22:22:51
+-- Dump completed on 2015-02-24  0:05:41

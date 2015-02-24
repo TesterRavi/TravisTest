@@ -43,7 +43,7 @@ CREATE TABLE `member_skus_map` (
 
 LOCK TABLES `member_skus_map` WRITE;
 /*!40000 ALTER TABLE `member_skus_map` DISABLE KEYS */;
-INSERT INTO `member_skus_map` VALUES ('Women','Clothing','Dresses','Daytime',2736241,'Y',0,'2015-02-23 20:11:35'),('Women','Clothing','Dresses','Daytime',2736242,'Y',0,'2015-02-23 20:11:35'),('Women','Clothing','Dresses','Daytime',2736243,'Y',0,'2015-02-23 20:11:35'),('Women','Clothing','Dresses','Daytime',2736244,'Y',0,'2015-02-23 20:11:35'),('Women','Clothing','Dresses','Daytime',2736245,'Y',0,'2015-02-23 20:11:35'),('Women','Clothing','Dresses','Daytime',2736246,'Y',0,'2015-02-23 20:11:35'),('Women','Clothing','Dresses','Daytime',2736247,'Y',0,'2015-02-23 20:11:35'),('Women','Clothing','Dresses','Daytime',2736248,'Y',0,'2015-02-23 20:11:35'),('Women','Clothing','Dresses','Daytime',2736249,'Y',0,'2015-02-23 20:11:35'),('Women','Clothing','Dresses','Daytime',2736250,'Y',0,'2015-02-23 20:11:35'),('Women','Clothing','Dresses','Daytime',2736251,'Y',0,'2015-02-23 20:11:35'),('Women','Clothing','Dresses','Daytime',2736252,'Y',0,'2015-02-23 20:11:35'),('Kids','Maternity','Clothing','Tops',2736254,'Y',0,'2015-02-23 20:11:35'),('Kids','Maternity','Clothing','Tops',2736255,'Y',0,'2015-02-23 20:11:35');
+INSERT INTO `member_skus_map` VALUES ('Women','Clothing','Dresses','Daytime',2736241,'Y',0,'2015-02-23 23:59:24'),('Women','Clothing','Dresses','Daytime',2736242,'Y',0,'2015-02-23 23:59:24'),('Women','Clothing','Dresses','Daytime',2736243,'Y',0,'2015-02-23 23:59:24'),('Women','Clothing','Dresses','Daytime',2736244,'Y',0,'2015-02-23 23:59:24'),('Women','Clothing','Dresses','Daytime',2736245,'Y',0,'2015-02-23 23:59:24'),('Women','Clothing','Dresses','Daytime',2736246,'Y',0,'2015-02-23 23:59:24'),('Women','Clothing','Dresses','Daytime',2736247,'Y',0,'2015-02-23 23:59:24'),('Women','Clothing','Dresses','Daytime',2736248,'Y',0,'2015-02-23 23:59:24'),('Women','Clothing','Dresses','Daytime',2736249,'Y',0,'2015-02-23 23:59:24'),('Women','Clothing','Dresses','Daytime',2736250,'Y',0,'2015-02-23 23:59:24'),('Women','Clothing','Dresses','Daytime',2736251,'Y',0,'2015-02-23 23:59:24'),('Women','Clothing','Dresses','Daytime',2736252,'Y',0,'2015-02-23 23:59:24'),('Kids','Maternity','Clothing','Tops',2736254,'Y',0,'2015-02-23 23:59:24'),('Kids','Maternity','Clothing','Tops',2736255,'Y',0,'2015-02-23 23:59:24');
 /*!40000 ALTER TABLE `member_skus_map` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -113,4 +113,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-02-23 22:22:53
+-- Dump completed on 2015-02-24  0:05:42

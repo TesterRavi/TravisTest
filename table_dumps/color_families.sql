@@ -36,7 +36,7 @@ CREATE TABLE `color_families` (
 
 LOCK TABLES `color_families` WRITE;
 /*!40000 ALTER TABLE `color_families` DISABLE KEYS */;
-INSERT INTO `color_families` VALUES ('Beige',1,'2015-02-23 20:11:18'),('Black',1,'2015-02-23 20:11:18'),('Blue',1,'2015-02-23 20:11:18'),('Brown',1,'2015-02-23 20:11:18'),('Gray',1,'2015-02-23 20:11:18'),('Green',1,'2015-02-23 20:11:18'),('Metallic',1,'2015-02-23 20:11:18'),('Multi',1,'2015-02-23 20:11:18'),('No Color',1,'2015-02-23 20:11:18'),('Orange',1,'2015-02-23 20:11:18'),('Pink',1,'2015-02-23 20:11:18'),('Purple',1,'2015-02-23 20:11:18'),('Red',1,'2015-02-23 20:11:18'),('White',1,'2015-02-23 20:11:18'),('Yellow',1,'2015-02-23 20:11:18');
+INSERT INTO `color_families` VALUES ('Beige',1,'2015-02-23 23:59:07'),('Black',1,'2015-02-23 23:59:07'),('Blue',1,'2015-02-23 23:59:07'),('Brown',1,'2015-02-23 23:59:07'),('Gray',1,'2015-02-23 23:59:07'),('Green',1,'2015-02-23 23:59:07'),('Metallic',1,'2015-02-23 23:59:07'),('Multi',1,'2015-02-23 23:59:07'),('No Color',1,'2015-02-23 23:59:07'),('Orange',1,'2015-02-23 23:59:07'),('Pink',1,'2015-02-23 23:59:07'),('Purple',1,'2015-02-23 23:59:07'),('Red',1,'2015-02-23 23:59:07'),('White',1,'2015-02-23 23:59:07'),('Yellow',1,'2015-02-23 23:59:07');
 /*!40000 ALTER TABLE `color_families` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -74,4 +74,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-02-23 22:22:23
+-- Dump completed on 2015-02-24  0:05:08

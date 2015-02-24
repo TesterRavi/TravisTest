@@ -37,7 +37,7 @@ CREATE TABLE `nordstrom_properties` (
 
 LOCK TABLES `nordstrom_properties` WRITE;
 /*!40000 ALTER TABLE `nordstrom_properties` DISABLE KEYS */;
-INSERT INTO `nordstrom_properties` VALUES (1,'Nordstrom','2014-09-23 08:04:30','2014-02-26 10:15:55'),(2,'N.com','2014-11-13 18:13:52','2015-01-30 05:23:28'),(3,'Rack','2015-02-21 19:04:36','2015-01-06 20:56:11'),(4,'NR.com','2014-11-07 09:43:33','2015-02-23 11:47:01');
+INSERT INTO `nordstrom_properties` VALUES (1,'Nordstrom','2014-09-23 11:52:19','2014-02-26 14:03:44'),(2,'N.com','2014-11-13 22:01:41','2015-01-30 09:11:17'),(3,'Rack','2015-02-21 22:52:25','2015-01-07 00:44:00'),(4,'NR.com','2014-11-07 13:31:22','2015-02-23 15:34:50');
 /*!40000 ALTER TABLE `nordstrom_properties` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-02-23 22:22:38
+-- Dump completed on 2015-02-24  0:05:25

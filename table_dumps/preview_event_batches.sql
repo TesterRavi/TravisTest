@@ -39,7 +39,7 @@ CREATE TABLE `preview_event_batches` (
 
 LOCK TABLES `preview_event_batches` WRITE;
 /*!40000 ALTER TABLE `preview_event_batches` DISABLE KEYS */;
-INSERT INTO `preview_event_batches` VALUES ('test','test',1,'2015-02-23 20:12:32','2011-05-18 20:48:30'),('test_case_2','please ignore me, i really am a figment of your imagination',1,'2015-02-23 20:12:32','2011-07-13 22:47:21');
+INSERT INTO `preview_event_batches` VALUES ('test','test',1,'2015-02-24 00:00:21','2011-05-18 20:48:30'),('test_case_2','please ignore me, i really am a figment of your imagination',1,'2015-02-24 00:00:21','2011-07-13 22:47:21');
 /*!40000 ALTER TABLE `preview_event_batches` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -73,4 +73,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-02-23 22:22:57
+-- Dump completed on 2015-02-24  0:05:48

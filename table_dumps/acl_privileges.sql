@@ -43,7 +43,7 @@ CREATE TABLE `acl_privileges` (
 
 LOCK TABLES `acl_privileges` WRITE;
 /*!40000 ALTER TABLE `acl_privileges` DISABLE KEYS */;
-INSERT INTO `acl_privileges` VALUES ('create','','2015-02-23 20:11:46',NULL,'2011-06-02 16:51:28',NULL),('delete','','2015-02-23 20:11:46',NULL,'2011-06-02 16:51:28',NULL),('read','','2015-02-23 20:11:46',NULL,'2011-06-02 16:51:28',NULL),('update','','2015-02-23 20:11:46',NULL,'2011-06-02 16:51:28',NULL);
+INSERT INTO `acl_privileges` VALUES ('create','','2015-02-23 23:59:33',NULL,'2011-06-02 16:51:28',NULL),('delete','','2015-02-23 23:59:33',NULL,'2011-06-02 16:51:28',NULL),('read','','2015-02-23 23:59:33',NULL,'2011-06-02 16:51:28',NULL),('update','','2015-02-23 23:59:33',NULL,'2011-06-02 16:51:28',NULL);
 /*!40000 ALTER TABLE `acl_privileges` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -77,4 +77,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-02-23 22:22:17
+-- Dump completed on 2015-02-24  0:05:02
