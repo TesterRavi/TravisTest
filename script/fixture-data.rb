@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require './fixtures.rb'
+require 'fixtures'
 
 
 $arg_variable = ARGV[0]
