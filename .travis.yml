@@ -1,3 +1,3 @@
 sudo: false
 install: gem install mysql2
-script: ./script/fixtures.rb "install"
+script: ./script/fixture-data.rb "install"

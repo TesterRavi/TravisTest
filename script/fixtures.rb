@@ -3,23 +3,9 @@ require 'mysql2'
 require 'yaml'
 
 
-arg_variable = ARGV[0]
+
 
 # Traversing depth-first fixture data solution.
-
-## variables:
-
-current_dir = File.expand_path(Dir.pwd)
-# current_dir = "#{current_dir}/halo-sql"
-
-
-$yaml_file_name = "table_dependencies.yaml"
-$script_file_location = "#{current_dir}/script/"
-$yaml_file_location = "#{current_dir}/post_deployment_script/"
-$table_dump_location = "#{current_dir}/table_dumps/"
-$yaml_Object = Hash.new
-$tables_queue  = Array.new
-
 
 def self.metamysql
 
@@ -255,102 +241,5 @@ def self.postDeploymentScript()
 
 	end
 puts "Done"
-
-end
-
-
-
-
-
-###### Main #####
-
-
-
-if arg_variable == "dump" then
-
-metamysql
-
-load_yaml
-
-yObject = $yaml_Object
-
-puts "loading DFS into memory:"
-
-yObject.each do |key,val|
-
-	dfs_tables(yObject,key)
-
-end
-
-puts "done.."
-
-dump_table_from_mysql($tables_queue)
-
-mysql_dump_sproc()
-
-
-elsif arg_variable == "install"
-
-
-load_yaml
-
-yObject = $yaml_Object
-
-puts "loading DFS into memory:"
-
-yObject.each do |key,val|
-
-	dfs_tables(yObject,key)
-
-end
-
-puts "done.."
-
-mysql_preinstall()
-
-install_table_to_mysql($tables_queue)
-
-mysql_install_sproc()
-
-postDeploymentScript
-
-elsif arg_variable == "dump-install"
-
-
-metamysql
-
-load_yaml
-
-yObject = $yaml_Object
-
-puts "loading DFS into memory:"
-
-yObject.each do |key,val|
-
-	dfs_tables(yObject,key)
-
-end
-
-puts "done.."
-
-dump_table_from_mysql($tables_queue)
-
-mysql_dump_sproc()
-
-mysql_preinstall()
-
-install_table_to_mysql($tables_queue)
-
-mysql_install_sproc()
-
-postDeploymentScript
-
-
-else
-
-	puts " Need to pass argument to this script: \n"
-	puts " 'dump' if you are trying to dump data \n"
-	puts " 'install' if you are trying to install data \n"
-	puts " 'dump-install' if you are trying to dump data and then install them. \n"
 
 end
